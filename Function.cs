@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace sem2_lab2 {
   public class Function {
-    public static double Dychotomic(double a, double b, double e, double x = default) {
+    public static double Dychotomy(double a, double b, double e, double x = default) {
       if (Fun(a) * Fun(b) >= 0) {
         throw new Exception($"Нет единственного решения на отрезке [{a}; {b}] !!!");
       }
@@ -21,6 +21,39 @@ namespace sem2_lab2 {
       return x;
     }
 
+    public static double LocMin(double a, double b, double e) {
+      double delta = e / 10;
+
+      while (b - a >= e) {
+        double middle = (a + b) / 2;
+        double lambda = middle - delta, mu = middle + delta;
+        if (Fun(lambda) < Fun(mu))
+          b = mu;
+        else
+          a = lambda;
+      }
+
+      return (a + b) / 2;
+    }
+
+    public static double LocMax(double a, double b, double e) {
+      double delta = e / 10;
+
+      while (b - a >= e) {
+        double middle = (a + b) / 2;
+        double lambda = middle - delta, mu = middle + delta;
+        if (-Fun(lambda) < -Fun(mu))
+          b = mu;
+        else
+          a = lambda;
+      }
+
+      return (a + b) / 2;
+    }
+
+    public static double FunDerivative(double x) {
+      return (4 * x - 18) * Math.Exp(-(x / 3)) - ((2 * Math.Pow(x, 2) - 18 * x + 27) * Math.Exp(-(x / 3))) / 3;
+    }
 
     public static double Fun(double x) {
       return (27 - 18 * x + 2 * Math.Pow(x, 2)) * Math.Exp( -(x / 3) );

@@ -6,7 +6,11 @@ namespace sem2_lab2 {
   public partial class Form1 : Form {
     private double a, b, e, x, y;
     private const double step = 0.01;
-    
+
+    private void найтиМинимумToolStripMenuItem_Click(object sender, EventArgs e) {
+      
+    }
+
     public Form1() {
       InitializeComponent();
     }
@@ -34,7 +38,7 @@ namespace sem2_lab2 {
       x = a;
 
       try {
-        Function.Dychotomic(a, b, this.e);
+        Function.Dychotomy(a, b, this.e);
       } catch (Exception ex) {
         labelCondition.Text = ex.Message;
 
@@ -44,7 +48,7 @@ namespace sem2_lab2 {
       double pointX;
 
       try {
-        pointX = Math.Round((double)Function.Dychotomic(a, b, this.e), (int)-Math.Log10(this.e));
+        pointX = Math.Round((double)Function.Dychotomy(a, b, this.e), (int)-Math.Log10(this.e));
       } catch (Exception ex) {
         labelCondition.Text = ex.Message;
 
@@ -55,6 +59,14 @@ namespace sem2_lab2 {
       double pointY = Math.Truncate(Function.Fun(pointX));
 
       labelCondition.Text = $"Решение уравнения f(x) = 0 на отрезке [{a}; {b}]:\n\tx = {pointX}\n\ty = {pointY}\n\n\t";
+
+      double pointXMin = Math.Round(Function.LocMin(a, b, this.e), (int)-Math.Log10(this.e));
+
+      labelCondition.Text += $"Минимум функции на отрезке [{a}; {b}]: {pointXMin}\n\n";
+
+      double pointXMax = Math.Round(Function.LocMax(a, b, this.e), (int)-Math.Log10(this.e));
+
+      labelCondition.Text += $"Максимум функции на отрезке [{a}; {b}]: {pointXMax}";
 
       PaintFun();
     }
