@@ -23,14 +23,10 @@
     /// содержимое этого метода с помощью редактора кода.
     /// </summary>
     private void InitializeComponent() {
-      this.components = new System.ComponentModel.Container();
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-      System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-      System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-      this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.label1 = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
       this.label6 = new System.Windows.Forms.Label();
@@ -41,7 +37,6 @@
       this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.построитьГрафикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.очиститьГрафикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
@@ -56,50 +51,26 @@
       this.menuStrip3.SuspendLayout();
       this.SuspendLayout();
       // 
-      // menuStrip1
-      // 
-      this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-      this.menuStrip1.Location = new System.Drawing.Point(0, 52);
-      this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(1244, 24);
-      this.menuStrip1.TabIndex = 0;
-      this.menuStrip1.Text = "menuStrip1";
-      // 
       // chart
       // 
-      chartArea5.Name = "ChartArea1";
-      this.chart.ChartAreas.Add(chartArea5);
-      legend5.Enabled = false;
-      legend5.Name = "Legend1";
-      this.chart.Legends.Add(legend5);
+      chartArea6.Name = "ChartArea1";
+      this.chart.ChartAreas.Add(chartArea6);
+      legend6.Enabled = false;
+      legend6.Name = "Legend1";
+      this.chart.Legends.Add(legend6);
       this.chart.Location = new System.Drawing.Point(599, 12);
       this.chart.Name = "chart";
       this.chart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      series5.BorderWidth = 3;
-      series5.ChartArea = "ChartArea1";
-      series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-      series5.IsVisibleInLegend = false;
-      series5.Legend = "Legend1";
-      series5.Name = "Series1";
-      this.chart.Series.Add(series5);
+      series6.BorderWidth = 3;
+      series6.ChartArea = "ChartArea1";
+      series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series6.IsVisibleInLegend = false;
+      series6.Legend = "Legend1";
+      series6.Name = "Series1";
+      this.chart.Series.Add(series6);
       this.chart.Size = new System.Drawing.Size(592, 450);
       this.chart.TabIndex = 1;
       this.chart.Text = "chart1";
-      // 
-      // menuStrip2
-      // 
-      this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-      this.menuStrip2.Location = new System.Drawing.Point(0, 28);
-      this.menuStrip2.Name = "menuStrip2";
-      this.menuStrip2.Size = new System.Drawing.Size(1244, 24);
-      this.menuStrip2.TabIndex = 2;
-      this.menuStrip2.Text = "menuStrip2";
-      // 
-      // contextMenuStrip1
-      // 
-      this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-      this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
       // 
       // label1
       // 
@@ -202,12 +173,6 @@
       this.очиститьГрафикToolStripMenuItem.Text = "Очистить график";
       this.очиститьГрафикToolStripMenuItem.Click += new System.EventHandler(this.очиститьГрафикToolStripMenuItem_Click);
       // 
-      // contextMenuStrip2
-      // 
-      this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-      this.contextMenuStrip2.Name = "contextMenuStrip2";
-      this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-      // 
       // label2
       // 
       this.label2.AutoSize = true;
@@ -289,7 +254,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1244, 685);
+      this.ClientSize = new System.Drawing.Size(1244, 662);
       this.Controls.Add(this.textBoxE);
       this.Controls.Add(this.textBoxB);
       this.Controls.Add(this.textBoxA);
@@ -299,10 +264,7 @@
       this.Controls.Add(this.label2);
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.chart);
-      this.Controls.Add(this.menuStrip1);
-      this.Controls.Add(this.menuStrip2);
       this.Controls.Add(this.menuStrip3);
-      this.MainMenuStrip = this.menuStrip1;
       this.Name = "Form1";
       this.Text = "Form1";
       ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
@@ -316,18 +278,13 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.MenuStrip menuStrip1;
     private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-    private System.Windows.Forms.MenuStrip menuStrip2;
-    private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.MenuStrip menuStrip3;
     private System.Windows.Forms.ToolStripMenuItem менюToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem построитьГрафикToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem очиститьГрафикToolStripMenuItem;
-    private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label label4;

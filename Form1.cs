@@ -22,7 +22,7 @@ namespace sem2_lab2 {
 
       if (a > b) {
         labelCondition.Text = "Отрезок [a; b] не должен быть убывающим !!!\n Пишите такие a и b, что:" +
-          "\n a >= b\n\n";
+          "\n a <= b\n\n";
 
         return;
       }
@@ -61,7 +61,7 @@ namespace sem2_lab2 {
 
       if (a > b) {
         labelCondition.Text = "Отрезок [a; b] не должен быть убывающим !!!\n Пишите такие a и b, что:" +
-          "\n a >= b\n\n";
+          "\n a <= b\n\n";
 
         return;
       }
