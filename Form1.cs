@@ -8,7 +8,81 @@ namespace sem2_lab2 {
     private const double step = 0.01;
 
     private void найтиМинимумToolStripMenuItem_Click(object sender, EventArgs e) {
-      
+      if (!double.TryParse(textBoxA.Text, out a)) {
+        labelCondition.Text = "Неправильный формат данных для значения a !!!\n\n";
+
+        return;
+      }
+
+      if (!double.TryParse(textBoxB.Text, out b)) {
+        labelCondition.Text = "Неправильный формат данных для значения b !!!\n\n";
+
+        return;
+      }
+
+      if (a > b) {
+        labelCondition.Text = "Отрезок [a; b] не должен быть убывающим !!!\n Пишите такие a и b, что:" +
+          "\n a >= b\n\n";
+
+        return;
+      }
+
+      //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")
+        || textBoxE.Text[0] == '-') {
+        labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
+
+        return;
+      }
+
+      x = a;
+
+      double pointXMin = Math.Round(Function.LocMin(a, b, this.e), (int)-Math.Log10(this.e));
+      double pointYMin = Math.Round(Function.Fun(pointXMin), (int)-Math.Log10(this.e));
+
+      labelCondition.Text += $"Минимум функции на отрезке [{a}; {b}]:\n\tx = {pointXMin}\n\ty = " +
+        $"{pointYMin}\n\n";
+
+      PaintFun();
+    }
+
+    private void найтиМаксимумToolStripMenuItem_Click(object sender, EventArgs e) {
+      if (!double.TryParse(textBoxA.Text, out a)) {
+        labelCondition.Text = "Неправильный формат данных для значения a !!!\n\n";
+
+        return;
+      }
+
+      if (!double.TryParse(textBoxB.Text, out b)) {
+        labelCondition.Text = "Неправильный формат данных для значения b !!!\n\n";
+
+        return;
+      }
+
+      if (a > b) {
+        labelCondition.Text = "Отрезок [a; b] не должен быть убывающим !!!\n Пишите такие a и b, что:" +
+          "\n a >= b\n\n";
+
+        return;
+      }
+
+      //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")
+        || textBoxE.Text[0] == '-') {
+        labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
+
+        return;
+      }
+
+      x = a;
+
+      double pointXMax = Math.Round(Function.LocMax(a, b, this.e), (int)-Math.Log10(this.e));
+      double pointYMax = Math.Round(Function.Fun(pointXMax), (int)-Math.Log10(this.e));
+
+      labelCondition.Text += $"Максимум функции на отрезке [{a}; {b}]:\n\tx = {pointXMax}\n\ty = " +
+        $"{pointYMax}\n\n";
+
+      PaintFun();
     }
 
     public Form1() {
@@ -17,20 +91,28 @@ namespace sem2_lab2 {
 
     private void построитьГрафикToolStripMenuItem_Click(object sender, EventArgs e) {
       if (!double.TryParse(textBoxA.Text, out a)) {
-        labelCondition.Text = "Неправильный формат данных для значения a !!!";
+        labelCondition.Text = "Неправильный формат данных для значения a !!!\n\n";
 
         return;
       }
 
       if (!double.TryParse(textBoxB.Text, out b)) {
-        labelCondition.Text = "Неправильный формат данных для значения b !!!";
+        labelCondition.Text = "Неправильный формат данных для значения b !!!\n\n";
+
+        return;
+      }
+
+      if (a > b) {
+        labelCondition.Text = "Отрезок [a; b] не должен быть убывающим !!!\n Пишите такие a и b, что:" +
+          "\n a <= b\n\n";
 
         return;
       }
 
       //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
-      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")) {
-        labelCondition.Text = "Неправильный формат данных для значения e !!!";
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")
+        || textBoxE.Text[0] == '-') {
+        labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
 
         return;
       }
@@ -79,6 +161,10 @@ namespace sem2_lab2 {
       chart.Series[0].Points.Clear();
 
       chart.ChartAreas[0].AxisX.Crossing = 0;
+
+      if (a - b == 0) {
+        b += 10;
+      }
 
       while (x <= b) {
         y = Function.Fun(x);
