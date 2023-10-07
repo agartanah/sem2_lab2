@@ -23,9 +23,9 @@
     /// содержимое этого метода с помощью редактора кода.
     /// </summary>
     private void InitializeComponent() {
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-      System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-      System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
       this.label1 = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
@@ -37,6 +37,8 @@
       this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.построитьГрафикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.очиститьГрафикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.найтиМинимумToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.найтиМаксимумToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
       this.textBoxA = new System.Windows.Forms.TextBox();
       this.textBoxB = new System.Windows.Forms.TextBox();
       this.textBoxE = new System.Windows.Forms.TextBox();
-      this.найтиМинимумToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.найтиМаксимумToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
       this.panel1.SuspendLayout();
       this.menuStrip3.SuspendLayout();
@@ -53,21 +53,21 @@
       // 
       // chart
       // 
-      chartArea6.Name = "ChartArea1";
-      this.chart.ChartAreas.Add(chartArea6);
-      legend6.Enabled = false;
-      legend6.Name = "Legend1";
-      this.chart.Legends.Add(legend6);
-      this.chart.Location = new System.Drawing.Point(599, 12);
+      chartArea1.Name = "ChartArea1";
+      this.chart.ChartAreas.Add(chartArea1);
+      legend1.Enabled = false;
+      legend1.Name = "Legend1";
+      this.chart.Legends.Add(legend1);
+      this.chart.Location = new System.Drawing.Point(683, 12);
       this.chart.Name = "chart";
       this.chart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      series6.BorderWidth = 3;
-      series6.ChartArea = "ChartArea1";
-      series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-      series6.IsVisibleInLegend = false;
-      series6.Legend = "Legend1";
-      series6.Name = "Series1";
-      this.chart.Series.Add(series6);
+      series1.BorderWidth = 3;
+      series1.ChartArea = "ChartArea1";
+      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series1.IsVisibleInLegend = false;
+      series1.Legend = "Legend1";
+      series1.Name = "Series1";
+      this.chart.Series.Add(series1);
       this.chart.Size = new System.Drawing.Size(592, 450);
       this.chart.TabIndex = 1;
       this.chart.Text = "chart1";
@@ -144,7 +144,7 @@
             this.менюToolStripMenuItem});
       this.menuStrip3.Location = new System.Drawing.Point(0, 0);
       this.menuStrip3.Name = "menuStrip3";
-      this.menuStrip3.Size = new System.Drawing.Size(1244, 28);
+      this.menuStrip3.Size = new System.Drawing.Size(1306, 28);
       this.menuStrip3.TabIndex = 7;
       this.menuStrip3.Text = "menuStrip3";
       // 
@@ -163,7 +163,7 @@
       // 
       this.построитьГрафикToolStripMenuItem.Name = "построитьГрафикToolStripMenuItem";
       this.построитьГрафикToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.построитьГрафикToolStripMenuItem.Text = "Построить график";
+      this.построитьГрафикToolStripMenuItem.Text = "Решение f(x) = 0";
       this.построитьГрафикToolStripMenuItem.Click += new System.EventHandler(this.построитьГрафикToolStripMenuItem_Click);
       // 
       // очиститьГрафикToolStripMenuItem
@@ -172,6 +172,20 @@
       this.очиститьГрафикToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
       this.очиститьГрафикToolStripMenuItem.Text = "Очистить график";
       this.очиститьГрафикToolStripMenuItem.Click += new System.EventHandler(this.очиститьГрафикToolStripMenuItem_Click);
+      // 
+      // найтиМинимумToolStripMenuItem
+      // 
+      this.найтиМинимумToolStripMenuItem.Name = "найтиМинимумToolStripMenuItem";
+      this.найтиМинимумToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.найтиМинимумToolStripMenuItem.Text = "Найти минимум";
+      this.найтиМинимумToolStripMenuItem.Click += new System.EventHandler(this.найтиМинимумToolStripMenuItem_Click);
+      // 
+      // найтиМаксимумToolStripMenuItem
+      // 
+      this.найтиМаксимумToolStripMenuItem.Name = "найтиМаксимумToolStripMenuItem";
+      this.найтиМаксимумToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.найтиМаксимумToolStripMenuItem.Text = "Найти максимум";
+      this.найтиМаксимумToolStripMenuItem.Click += new System.EventHandler(this.найтиМаксимумToolStripMenuItem_Click);
       // 
       // label2
       // 
@@ -236,25 +250,11 @@
       this.textBoxE.Size = new System.Drawing.Size(339, 36);
       this.textBoxE.TabIndex = 18;
       // 
-      // найтиМинимумToolStripMenuItem
-      // 
-      this.найтиМинимумToolStripMenuItem.Name = "найтиМинимумToolStripMenuItem";
-      this.найтиМинимумToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.найтиМинимумToolStripMenuItem.Text = "Найти минимум";
-      this.найтиМинимумToolStripMenuItem.Click += new System.EventHandler(this.найтиМинимумToolStripMenuItem_Click);
-      // 
-      // найтиМаксимумToolStripMenuItem
-      // 
-      this.найтиМаксимумToolStripMenuItem.Name = "найтиМаксимумToolStripMenuItem";
-      this.найтиМаксимумToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.найтиМаксимумToolStripMenuItem.Text = "Найти максимум";
-      this.найтиМаксимумToolStripMenuItem.Click += new System.EventHandler(this.найтиМаксимумToolStripMenuItem_Click);
-      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1244, 662);
+      this.ClientSize = new System.Drawing.Size(1306, 662);
       this.Controls.Add(this.textBoxE);
       this.Controls.Add(this.textBoxB);
       this.Controls.Add(this.textBoxA);
@@ -266,7 +266,7 @@
       this.Controls.Add(this.chart);
       this.Controls.Add(this.menuStrip3);
       this.Name = "Form1";
-      this.Text = "Form1";
+      this.Text = "Dychotomy";
       ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();

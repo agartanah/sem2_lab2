@@ -28,7 +28,7 @@ namespace sem2_lab2 {
       }
 
       //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
-      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"(1|10+)|(0,(1|0+1))")
         || textBoxE.Text[0] == '-') {
         labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
 
@@ -37,8 +37,8 @@ namespace sem2_lab2 {
 
       x = a;
 
-      double pointXMin = Math.Round(Function.LocMin(a, b, this.e), (int)-Math.Log10(this.e));
-      double pointYMin = Math.Round(Function.Fun(pointXMin), (int)-Math.Log10(this.e));
+      double pointXMin = Math.Round(Function.LocMin(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      double pointYMin = Function.Fun(pointXMin);
 
       labelCondition.Text += $"Минимум функции на отрезке [{a}; {b}]:\n\tx = {pointXMin}\n\ty = " +
         $"{pointYMin}\n\n";
@@ -67,7 +67,7 @@ namespace sem2_lab2 {
       }
 
       //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
-      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"(1|10+)|(0,(1|0+1))")
         || textBoxE.Text[0] == '-') {
         labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
 
@@ -76,8 +76,8 @@ namespace sem2_lab2 {
 
       x = a;
 
-      double pointXMax = Math.Round(Function.LocMax(a, b, this.e), (int)-Math.Log10(this.e));
-      double pointYMax = Math.Round(Function.Fun(pointXMax), (int)-Math.Log10(this.e));
+      double pointXMax = Math.Round(Function.LocMax(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      double pointYMax = Function.Fun(pointXMax);
 
       labelCondition.Text += $"Максимум функции на отрезке [{a}; {b}]:\n\tx = {pointXMax}\n\ty = " +
         $"{pointYMax}\n\n";
@@ -110,7 +110,7 @@ namespace sem2_lab2 {
       }
 
       //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
-      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"0,(1|0+1)")
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"(1|10+)|(0,(1|0+1))")
         || textBoxE.Text[0] == '-') {
         labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
 
@@ -130,7 +130,7 @@ namespace sem2_lab2 {
       double pointX;
 
       try {
-        pointX = Math.Round((double)Function.Dychotomy(a, b, this.e), (int)-Math.Log10(this.e));
+        pointX = Math.Round((double)Function.Dychotomy(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
       } catch (Exception ex) {
         labelCondition.Text = ex.Message;
 
@@ -142,11 +142,11 @@ namespace sem2_lab2 {
 
       labelCondition.Text = $"Решение уравнения f(x) = 0 на отрезке [{a}; {b}]:\n\tx = {pointX}\n\ty = {pointY}\n\n\t";
 
-      double pointXMin = Math.Round(Function.LocMin(a, b, this.e), (int)-Math.Log10(this.e));
+      double pointXMin = Math.Round(Function.LocMin(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
 
       labelCondition.Text += $"Минимум функции на отрезке [{a}; {b}]: {pointXMin}\n\n";
 
-      double pointXMax = Math.Round(Function.LocMax(a, b, this.e), (int)-Math.Log10(this.e));
+      double pointXMax = Math.Round(Function.LocMax(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
 
       labelCondition.Text += $"Максимум функции на отрезке [{a}; {b}]: {pointXMax}";
 
@@ -155,6 +155,7 @@ namespace sem2_lab2 {
 
     private void очиститьГрафикToolStripMenuItem_Click(object sender, EventArgs e) {
       chart.Series[0].Points.Clear();
+      labelCondition.Text = string.Empty;
     }
 
     private void PaintFun() {

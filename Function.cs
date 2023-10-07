@@ -5,7 +5,7 @@ namespace sem2_lab2 {
   public class Function {
     public static double Dychotomy(double a, double b, double e, double x = default) {
       if (Fun(a) * Fun(b) >= 0) {
-        throw new Exception($"Нет единственного решения на отрезке [{a}; {b}] !!!");
+        throw new Exception($"Нет единственного решения на отрезке [{a}; {b}] !!!\n\n");
       }
       
       while ((b - a) > e) {
@@ -26,7 +26,7 @@ namespace sem2_lab2 {
 
       while (b - a >= e) {
         double middle = (a + b) / 2;
-        double lambda = middle - delta, mu = middle + delta;
+        double lambda = a + delta, mu = b - delta; ;
         if (Fun(lambda) < Fun(mu))
           b = mu;
         else
@@ -41,7 +41,7 @@ namespace sem2_lab2 {
 
       while (b - a >= e) {
         double middle = (a + b) / 2;
-        double lambda = middle - delta, mu = middle + delta;
+        double lambda = a + delta, mu = b - delta;
         if (-Fun(lambda) < -Fun(mu))
           b = mu;
         else
