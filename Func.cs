@@ -22,7 +22,7 @@ namespace sem2_lab2 {
     public static double[] idsValues;
 
     public static double Dychotomy(double a, double b, double e, double x = default) {
-      if (Fun(a) * Fun(b) >= 0) {
+      if (Fun(a) * Fun(b) > 0) {
         throw new Exception($"Нет единственного решения на отрезке [{a}; {b}] !!!\n\n");
       }
       
@@ -31,17 +31,23 @@ namespace sem2_lab2 {
 
         if (Fun(a) * Fun(x) < 0) {
           b = x;
-        } else {
+        } else if (Fun(a) == 0) {
+          return a;
+        } else if (Fun(b) * Fun(x) < 0) {
           a = x;
+        } else if (Fun(b) == 0) {
+          return b;
+        } else if (Fun(x) == 0) {
+          return x;
         }
       }
 
       return x;
     }
 
-    public static double NutoneLocMin(double a, double b, double e) {
+    public static double Nutone(double a, double b, double e) {
       double x0;
-      
+
       x0 = (a + b) / 2;
 
       double x1 = x0;
@@ -54,7 +60,7 @@ namespace sem2_lab2 {
       return x1;
     }
 
-    public static double NutoneLocMax(double a, double b, double e) {
+    public static double NutoneIntersection(double a, double b, double e) {
       double x0;
 
       x0 = (a + b) / 2;
@@ -63,11 +69,41 @@ namespace sem2_lab2 {
 
       do {
         x0 = x1;
-        x1 = x0 - (-Derivative(x0) / -Derivative2(x0));
-      } while (Math.Abs(x1 - x0) >= e);
+        x1 = x0 - (Fun(x0) / Derivative(x0));
+      } while (Math.Abs(Fun(x0) / Derivative(x0)) >= e);
 
       return x1;
     }
+
+    //public static double NutoneLocMin(double a, double b, double e) {
+    //  double x0;
+
+    //  x0 = (a + b) / 2;
+
+    //  double x1 = x0;
+
+    //  do {
+    //    x0 = x1;
+    //    x1 = x0 - (Derivative(x0) / Derivative2(x0));
+    //  } while (Math.Abs(x1 - x0) >= e);
+
+    //  return x1;
+    //}
+
+    //public static double NutoneLocMax(double a, double b, double e) {
+    //  double x0;
+
+    //  x0 = (a + b) / 2;
+
+    //  double x1 = x0;
+
+    //  do {
+    //    x0 = x1;
+    //    x1 = x0 - (-Derivative(x0) / -Derivative2(x0));
+    //  } while (Math.Abs(x1 - x0) >= e);
+
+    //  return x1;
+    //}
 
     public static double DychotomyLocMin(double a, double b, double e) {
       double delta = e / 10;

@@ -136,16 +136,38 @@ namespace sem2_lab2 {
 
       x = a;
 
-      double pointXMin = Math.Round(Func.NutoneLocMin(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      double pointXMin = Math.Round(Func.Nutone(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
       double pointYMin = Func.Fun(pointXMin);
 
-      labelCondition.Text += $"Минимум функции на отрезке [{a}; {b}]:\n\tx = {pointXMin}\n\ty = " +
+      labelCondition.Text += $"Экстремум функции на отрезке [{a}; {b}]:\n\tx = {pointXMin}\n\ty = " +
         $"{pointYMin}\n\n";
+
+      if (Func.Derivative2(pointXMin) > 0) {
+        labelCondition.Text += $"Этот экстремум: точка минимума !!!\n\n";
+      } else if (Func.Derivative2(pointXMin) < 0) {
+        labelCondition.Text += $"Этот экстремум: точка максимума !!!\n\n";
+      }
 
       PaintFun();
     }
 
-    private void найтиМаксимумToolStripMenuItem1_Click(object sender, EventArgs e) {
+    private void textBox1_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void начертитьToolStripMenuItem_Click(object sender, EventArgs e) {
+      try {
+        Func.TextFunction = functionTextBox.Text;
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
+
+        return;
+      }
+
+      PaintFun();
+    }
+
+    private void решениеFx0ToolStripMenuItem_Click(object sender, EventArgs e) {
       if (!double.TryParse(textBoxA.Text, out a)) {
         labelCondition.Text = "Неправильный формат данных для значения a !!!\n\n";
 
@@ -172,6 +194,8 @@ namespace sem2_lab2 {
         return;
       }
 
+      x = a;
+
       try {
         Func.TextFunction = functionTextBox.Text;
       } catch (Exception ex) {
@@ -180,19 +204,22 @@ namespace sem2_lab2 {
         return;
       }
 
-      x = a;
+      double pointX;
 
-      double pointXMax = Math.Round(Func.NutoneLocMax(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
-      double pointYMax = Func.Fun(pointXMax);
+      try {
+        pointX = Math.Round((double)Func.NutoneIntersection(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
 
-      labelCondition.Text += $"Максимум функции на отрезке [{a}; {b}]:\n\tx = {pointXMax}\n\ty = " +
-        $"{pointYMax}\n\n";
+        return;
+      }
+
+
+      double pointY = Math.Truncate(Func.Fun(pointX));
+
+      labelCondition.Text = $"Решение уравнения f(x) = 0 на отрезке [{a}; {b}]:\n\tx = {pointX}\n\ty = {pointY}\n\n\t";
 
       PaintFun();
-    }
-
-    private void textBox1_TextChanged(object sender, EventArgs e) {
-
     }
 
     public Form1() {
@@ -229,6 +256,14 @@ namespace sem2_lab2 {
       }
 
       x = a;
+
+      try {
+        Func.TextFunction = functionTextBox.Text;
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
+
+        return;
+      }
 
       try {
         Func.Dychotomy(a, b, this.e);
@@ -275,8 +310,11 @@ namespace sem2_lab2 {
       chart.ChartAreas[0].AxisX.Crossing = 0;
 
       if (a - b == 0) {
-        b += 10;
+        a = -10;
+        b = 10;
       }
+
+      x = a;
 
       while (x <= b) {
         y = Func.Fun(x);
