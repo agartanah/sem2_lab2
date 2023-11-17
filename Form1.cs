@@ -236,6 +236,114 @@ namespace sem2_lab2 {
       PaintFun();
     }
 
+    private void найтиМинимумToolStripMenuItem2_Click(object sender, EventArgs e) {
+      if (!double.TryParse(textBoxA.Text, out a)) {
+        labelCondition.Text = "Неправильный формат данных для значения a !!!\n\n";
+
+        return;
+      }
+
+      if (!double.TryParse(textBoxB.Text, out b)) {
+        labelCondition.Text = "Неправильный формат данных для значения b !!!\n\n";
+
+        return;
+      }
+
+      if (a > b) {
+        labelCondition.Text = "a и b должны быть такие, что: \n a <= b\n\n";
+
+        return;
+      }
+
+      //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"(1|10+)|(0,(1|0+1))")
+        || textBoxE.Text[0] == '-') {
+        labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
+
+        return;
+      }
+
+      x = a;
+
+      try {
+        Func.TextFunction = functionTextBox.Text;
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
+
+        return;
+      }
+
+      double pointX;
+
+      try {
+        pointX = Math.Round((double)Func.CoordinateDescentLocMin(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
+
+        return;
+      }
+
+      double pointY = Func.Fun(pointX);
+
+      labelCondition.Text = $"Минимум на отрезке [{a}; {b}]:\n\tx = {pointX}\n\ty = {pointY}\n\n\t";
+
+      PaintFun();
+    }
+
+    private void найтиМаксимумToolStripMenuItem1_Click(object sender, EventArgs e) {
+      if (!double.TryParse(textBoxA.Text, out a)) {
+        labelCondition.Text = "Неправильный формат данных для значения a !!!\n\n";
+
+        return;
+      }
+
+      if (!double.TryParse(textBoxB.Text, out b)) {
+        labelCondition.Text = "Неправильный формат данных для значения b !!!\n\n";
+
+        return;
+      }
+
+      if (a > b) {
+        labelCondition.Text = "a и b должны быть такие, что: \n a <= b\n\n";
+
+        return;
+      }
+
+      //textBoxE.Text[textBoxE.Text.Length - 1] != '1'
+      if (!double.TryParse(textBoxE.Text, out this.e) || !Regex.IsMatch(textBoxE.Text, @"(1|10+)|(0,(1|0+1))")
+        || textBoxE.Text[0] == '-') {
+        labelCondition.Text = "Неправильный формат данных для значения e !!!\n\n";
+
+        return;
+      }
+
+      x = a;
+
+      try {
+        Func.TextFunction = functionTextBox.Text;
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
+
+        return;
+      }
+
+      double pointX;
+
+      try {
+        pointX = Math.Round((double)Func.CoordinateDescentLocMax(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      } catch (Exception ex) {
+        labelCondition.Text = ex.Message;
+
+        return;
+      }
+
+      double pointY = Func.Fun(pointX);
+
+      labelCondition.Text = $"Максимум на отрезке [{a}; {b}]:\n\tx = {pointX}\n\ty = {pointY}\n\n\t";
+
+      PaintFun();
+    }
+
     public Form1() {
       InitializeComponent();
       Func.idsNames = new string[] { "x", "e" };

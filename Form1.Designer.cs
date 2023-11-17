@@ -23,9 +23,9 @@
     /// содержимое этого метода с помощью редактора кода.
     /// </summary>
     private void InitializeComponent() {
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-      System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-      System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
       this.label1 = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
@@ -38,7 +38,9 @@
       this.очиститьГрафикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.методНьютонаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.найтиМинимумToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.решениеFx0ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.очиститьГрафикToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.методПокоординатногоСпускаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.начертитьГрафикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.начертитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +51,8 @@
       this.textBoxA = new System.Windows.Forms.TextBox();
       this.textBoxB = new System.Windows.Forms.TextBox();
       this.textBoxE = new System.Windows.Forms.TextBox();
-      this.решениеFx0ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.найтиМинимумToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.найтиМаксимумToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
       this.panel1.SuspendLayout();
       this.menuStrip3.SuspendLayout();
@@ -57,21 +60,21 @@
       // 
       // chart
       // 
-      chartArea1.Name = "ChartArea1";
-      this.chart.ChartAreas.Add(chartArea1);
-      legend1.Enabled = false;
-      legend1.Name = "Legend1";
-      this.chart.Legends.Add(legend1);
+      chartArea2.Name = "ChartArea1";
+      this.chart.ChartAreas.Add(chartArea2);
+      legend2.Enabled = false;
+      legend2.Name = "Legend1";
+      this.chart.Legends.Add(legend2);
       this.chart.Location = new System.Drawing.Point(643, 161);
       this.chart.Name = "chart";
       this.chart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      series1.BorderWidth = 3;
-      series1.ChartArea = "ChartArea1";
-      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-      series1.IsVisibleInLegend = false;
-      series1.Legend = "Legend1";
-      series1.Name = "Series1";
-      this.chart.Series.Add(series1);
+      series2.BorderWidth = 3;
+      series2.ChartArea = "ChartArea1";
+      series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series2.IsVisibleInLegend = false;
+      series2.Legend = "Legend1";
+      series2.Name = "Series1";
+      this.chart.Series.Add(series2);
       this.chart.Size = new System.Drawing.Size(592, 450);
       this.chart.TabIndex = 1;
       this.chart.Text = "chart1";
@@ -111,6 +114,7 @@
       this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.менюToolStripMenuItem,
             this.методНьютонаToolStripMenuItem,
+            this.методПокоординатногоСпускаToolStripMenuItem,
             this.справкаToolStripMenuItem,
             this.начертитьГрафикToolStripMenuItem});
       this.menuStrip3.Location = new System.Drawing.Point(0, 0);
@@ -133,28 +137,28 @@
       // построитьГрафикToolStripMenuItem
       // 
       this.построитьГрафикToolStripMenuItem.Name = "построитьГрафикToolStripMenuItem";
-      this.построитьГрафикToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.построитьГрафикToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
       this.построитьГрафикToolStripMenuItem.Text = "Решение f(x) = 0";
       this.построитьГрафикToolStripMenuItem.Click += new System.EventHandler(this.построитьГрафикToolStripMenuItem_Click);
       // 
       // найтиМинимумToolStripMenuItem
       // 
       this.найтиМинимумToolStripMenuItem.Name = "найтиМинимумToolStripMenuItem";
-      this.найтиМинимумToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.найтиМинимумToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
       this.найтиМинимумToolStripMenuItem.Text = "Найти минимум";
       this.найтиМинимумToolStripMenuItem.Click += new System.EventHandler(this.найтиМинимумToolStripMenuItem_Click);
       // 
       // найтиМаксимумToolStripMenuItem
       // 
       this.найтиМаксимумToolStripMenuItem.Name = "найтиМаксимумToolStripMenuItem";
-      this.найтиМаксимумToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.найтиМаксимумToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
       this.найтиМаксимумToolStripMenuItem.Text = "Найти максимум";
       this.найтиМаксимумToolStripMenuItem.Click += new System.EventHandler(this.найтиМаксимумToolStripMenuItem_Click);
       // 
       // очиститьГрафикToolStripMenuItem
       // 
       this.очиститьГрафикToolStripMenuItem.Name = "очиститьГрафикToolStripMenuItem";
-      this.очиститьГрафикToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.очиститьГрафикToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
       this.очиститьГрафикToolStripMenuItem.Text = "Очистить график";
       this.очиститьГрафикToolStripMenuItem.Click += new System.EventHandler(this.очиститьГрафикToolStripMenuItem_Click);
       // 
@@ -171,15 +175,31 @@
       // найтиМинимумToolStripMenuItem1
       // 
       this.найтиМинимумToolStripMenuItem1.Name = "найтиМинимумToolStripMenuItem1";
-      this.найтиМинимумToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+      this.найтиМинимумToolStripMenuItem1.Size = new System.Drawing.Size(212, 26);
       this.найтиМинимумToolStripMenuItem1.Text = "Найти экстремум";
       this.найтиМинимумToolStripMenuItem1.Click += new System.EventHandler(this.найтиМинимумToolStripMenuItem1_Click);
+      // 
+      // решениеFx0ToolStripMenuItem
+      // 
+      this.решениеFx0ToolStripMenuItem.Name = "решениеFx0ToolStripMenuItem";
+      this.решениеFx0ToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+      this.решениеFx0ToolStripMenuItem.Text = "Решение f(x) = 0";
+      this.решениеFx0ToolStripMenuItem.Click += new System.EventHandler(this.решениеFx0ToolStripMenuItem_Click);
       // 
       // очиститьГрафикToolStripMenuItem1
       // 
       this.очиститьГрафикToolStripMenuItem1.Name = "очиститьГрафикToolStripMenuItem1";
-      this.очиститьГрафикToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+      this.очиститьГрафикToolStripMenuItem1.Size = new System.Drawing.Size(212, 26);
       this.очиститьГрафикToolStripMenuItem1.Text = "Очистить график";
+      // 
+      // методПокоординатногоСпускаToolStripMenuItem
+      // 
+      this.методПокоординатногоСпускаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.найтиМинимумToolStripMenuItem2,
+            this.найтиМаксимумToolStripMenuItem1});
+      this.методПокоординатногоСпускаToolStripMenuItem.Name = "методПокоординатногоСпускаToolStripMenuItem";
+      this.методПокоординатногоСпускаToolStripMenuItem.Size = new System.Drawing.Size(245, 24);
+      this.методПокоординатногоСпускаToolStripMenuItem.Text = "Метод покоординатного спуска";
       // 
       // справкаToolStripMenuItem
       // 
@@ -198,7 +218,7 @@
       // начертитьToolStripMenuItem
       // 
       this.начертитьToolStripMenuItem.Name = "начертитьToolStripMenuItem";
-      this.начертитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.начертитьToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
       this.начертитьToolStripMenuItem.Text = "Начертить";
       this.начертитьToolStripMenuItem.Click += new System.EventHandler(this.начертитьToolStripMenuItem_Click);
       // 
@@ -265,12 +285,19 @@
       this.textBoxE.Size = new System.Drawing.Size(457, 36);
       this.textBoxE.TabIndex = 18;
       // 
-      // решениеFx0ToolStripMenuItem
+      // найтиМинимумToolStripMenuItem2
       // 
-      this.решениеFx0ToolStripMenuItem.Name = "решениеFx0ToolStripMenuItem";
-      this.решениеFx0ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.решениеFx0ToolStripMenuItem.Text = "Решение f(x) = 0";
-      this.решениеFx0ToolStripMenuItem.Click += new System.EventHandler(this.решениеFx0ToolStripMenuItem_Click);
+      this.найтиМинимумToolStripMenuItem2.Name = "найтиМинимумToolStripMenuItem2";
+      this.найтиМинимумToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+      this.найтиМинимумToolStripMenuItem2.Text = "Найти минимум";
+      this.найтиМинимумToolStripMenuItem2.Click += new System.EventHandler(this.найтиМинимумToolStripMenuItem2_Click);
+      // 
+      // найтиМаксимумToolStripMenuItem1
+      // 
+      this.найтиМаксимумToolStripMenuItem1.Name = "найтиМаксимумToolStripMenuItem1";
+      this.найтиМаксимумToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+      this.найтиМаксимумToolStripMenuItem1.Text = "Найти максимум";
+      this.найтиМаксимумToolStripMenuItem1.Click += new System.EventHandler(this.найтиМаксимумToolStripMenuItem1_Click);
       // 
       // Form1
       // 
@@ -324,6 +351,9 @@
     private System.Windows.Forms.ToolStripMenuItem начертитьГрафикToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem начертитьToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem решениеFx0ToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem методПокоординатногоСпускаToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem найтиМинимумToolStripMenuItem2;
+    private System.Windows.Forms.ToolStripMenuItem найтиМаксимумToolStripMenuItem1;
   }
 }
 
