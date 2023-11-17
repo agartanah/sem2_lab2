@@ -1,7 +1,4 @@
 ﻿using System;
-using FunctionParser;
-using System.Linq.Expressions;
-using System.Xml.Linq;
 
 namespace sem2_lab2 {
   public static class Func {
@@ -55,13 +52,18 @@ namespace sem2_lab2 {
       do {
         x0 = x1;
         x1 = x0 - (Derivative(x0) / Derivative2(x0));
-      } while (Math.Abs(x1 - x0) >= e);
+      } while (Math.Abs(x1 - x0) > e);
+
+      if (x1 > b || x1 < a) {
+        throw new Exception("На данном отрезке нет экстремума !!!");
+      }
 
       return x1;
     }
 
     public static double NutoneIntersection(double a, double b, double e) {
       double x0;
+      double h = 0.001;
 
       x0 = (a + b) / 2;
 
@@ -69,41 +71,19 @@ namespace sem2_lab2 {
 
       do {
         x0 = x1;
+        if (Derivative(x0) == 0) {
+          x0 = x0 / 2 - e;
+        }
+
         x1 = x0 - (Fun(x0) / Derivative(x0));
-      } while (Math.Abs(Fun(x0) / Derivative(x0)) >= e);
+      } while (Math.Abs(Fun(x0) / Derivative(x0)) > h);
+
+      if (x1 > b || x1 < a) {
+        throw new Exception("На данном отрезке нет точек пересечения !!!");
+      }
 
       return x1;
     }
-
-    //public static double NutoneLocMin(double a, double b, double e) {
-    //  double x0;
-
-    //  x0 = (a + b) / 2;
-
-    //  double x1 = x0;
-
-    //  do {
-    //    x0 = x1;
-    //    x1 = x0 - (Derivative(x0) / Derivative2(x0));
-    //  } while (Math.Abs(x1 - x0) >= e);
-
-    //  return x1;
-    //}
-
-    //public static double NutoneLocMax(double a, double b, double e) {
-    //  double x0;
-
-    //  x0 = (a + b) / 2;
-
-    //  double x1 = x0;
-
-    //  do {
-    //    x0 = x1;
-    //    x1 = x0 - (-Derivative(x0) / -Derivative2(x0));
-    //  } while (Math.Abs(x1 - x0) >= e);
-
-    //  return x1;
-    //}
 
     public static double DychotomyLocMin(double a, double b, double e) {
       double delta = e / 10;
@@ -134,10 +114,6 @@ namespace sem2_lab2 {
 
       return (a + b) / 2;
     }
-
-    //public static double FunDerivative(double x) {
-    //  return (4 * x - 18) * Math.Exp(-(x / 3)) - ((2 * Math.Pow(x, 2) - 18 * x + 27) * Math.Exp(-(x / 3))) / 3;
-    //}
 
     public static double Derivative(double x) {
       idsValues[0] = x;

@@ -136,10 +136,24 @@ namespace sem2_lab2 {
 
       x = a;
 
-      double pointXMin = Math.Round(Func.Nutone(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      double pointXMin = default;
+      try {
+        pointXMin = Math.Round(Func.Nutone(a, b, this.e), Math.Abs((int)Math.Log10(this.e)));
+      } catch (Exception ex) {
+        labelCondition.Text += ex.Message;
+
+        return;
+      }
+
+      if (double.IsNaN(pointXMin)) {
+        labelCondition.Text = "Функция не подходит под метод ньютона !!!\n\n";
+
+        return;
+      }
+
       double pointYMin = Func.Fun(pointXMin);
 
-      labelCondition.Text += $"Экстремум функции на отрезке [{a}; {b}]:\n\tx = {pointXMin}\n\ty = " +
+      labelCondition.Text = $"Экстремум функции на отрезке [{a}; {b}]:\n\tx = {pointXMin}\n\ty = " +
         $"{pointYMin}\n\n";
 
       if (Func.Derivative2(pointXMin) > 0) {
